@@ -26,10 +26,10 @@ composer install
 
 # 4. Then run npm
 
-''
+```
 npm install
 npm run dev
-''
+```
 
 # 5. Migrate the migration files
 ''

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('urls', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->foreignId('user_id');
+            // $table->string('title');
             $table->string('url')->unique();
             $table->string('short_url')->unique();
             $table->string('description')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

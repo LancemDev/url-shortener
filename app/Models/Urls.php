@@ -20,7 +20,8 @@ class Urls extends Model
     public static function generateShortUrl()
     {
         do{
-            $short_url = Str::random(6);
+            $prefix = "bit.ly/";
+            $short_url = $prefix.Str::random(6);
         } while (self::where('short_url', $short_url)->exists());
 
         return $short_url;

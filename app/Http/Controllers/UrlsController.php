@@ -12,25 +12,16 @@ class UrlsController extends Controller
      */
     public function index()
     {
-        // Check if user is authenticated
         if (auth()->check()) {
-            // Check if user has urls in the 'urls' table and return null if not. Return to view
             $user = auth()->user();
-            if ($user && !(Url::where('user_id', $user->id)->exists())) {
-                return view('urls.index', [
-                    'urls' => null,
-                ]);
-            } else {
-                // Return user urls to view
-                return view('urls.index', [
-                    'urls' => $user->urls,
-                ]);
-            }
-        } else {
-            // User is not authenticated, handle accordingly
-            // For example, redirect to login page
-            return redirect()->route('login');
+            $urls = Url::where('user_id', $user->id)->get();
+
+            return view('urls.index', [
+                'urls' => $urls->isEmpty() ? null : $urls,
+            ]);
         }
+
+        return redirect()->route('login');
     }
 
     /**

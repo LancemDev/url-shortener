@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## How to use the url_shortner
+## How to set up the Laravel url_shortner
 
 # 1. Clone the repo
 Go to the repo, then click code and clone using the provided link

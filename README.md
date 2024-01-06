@@ -32,16 +32,16 @@ npm run dev
 ```
 
 # 5. Migrate the migration files
-''
+```
 php artisan migration
-''
+```
 
 # 6. Serve the project
 
-''
+```
 php artisan serve
-''
+```
 
 # 7. Use the project
-Register and start using it now
+Register as a user and start using it now
 

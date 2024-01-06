@@ -26,19 +26,22 @@
                     </div>
                 </form>
                 @if ($urls != null)
-                    @foreach ($urls as $url)
-                    <div class="flex p-1">
-                        <div class="p-3 bg-blue-500 text-white hover:bg-blue-400 rounded">
-                            <a href="{{ $url->short_url }}" target="_blank">{{ $url->short_url }}</a>
-                        </div>
-                        <div class="p-3 bg-blue-500 text-white hover:bg-blue-400 rounded">
-                            <a href="{{ $url->url }}" target="_blank">{{ $url->url }}</a>
-                        </div>
-                        <div class="p-3 bg-blue-500 text-white hover:bg-blue-400 rounded">
-                            <a href="{{ $url->description }}" target="_blank">{{ $url->description }}</a>
-                        </div>
+                <div class="w-full">
+                    <div class="flex justify-between bg-gray-800 px-16 py-2">
+                        <div class="text-gray-300">URL Description</div>
+                        <div class="text-gray-300">Short URL</div>
                     </div>
+                    @foreach ($urls as $url)
+                        <div class="flex justify-between bg-gray-700 border-4 border-gray-200 rounded px-16 py-2 my-2">
+                            <div>
+                                <a href="{{ $url->description }}" target="_blank" class="text-blue-500 hover:text-blue-700">{{ $url->description }}</a>
+                            </div>
+                            <div>
+                                <a href="{{ $url->short_url }}" target="_blank" class="text-blue-500 hover:text-blue-700">{{ $url->short_url }}</a>
+                            </div>
+                        </div>
                     @endforeach
+                </div>
                 @endif
             </div>
         </div>

@@ -20,7 +20,7 @@ Then modify the db credentials according to your preferences
 If not, go to the official documentation then download and set them up
 
 Therefore, run(inside the project directory) 
-'''
+'''terminal
 composer install
 '
 

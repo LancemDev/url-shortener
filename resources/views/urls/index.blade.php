@@ -34,10 +34,14 @@
                     @foreach ($urls as $url)
                         <div class="flex justify-between bg-gray-700 border-4 border-gray-200 rounded px-16 py-2 my-2">
                             <div>
-                                <a href="{{ $url->description }}" target="_blank" class="text-blue-500 hover:text-blue-700">{{ $url->description }}</a>
+                                {{ $url->description }}
                             </div>
                             <div>
-                                <a href="{{ $url->short_url }}" target="_blank" class="text-blue-500 hover:text-blue-700">{{ $url->short_url }}</a>
+                                <form action="{{ route('url.shorten') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="short_url" value="{{ $url->short_url }}">
+                                    <input type="submit" value="{{ $url->short_url }}" class="text-blue-500 hover:text-blue-400" name="short_url">
+                                </form>
                             </div>
                         </div>
                     @endforeach

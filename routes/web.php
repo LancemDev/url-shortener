@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('urls', UrlsController::class)->middleware('auth');
-Route::post('url.shorten', [UrlsController::class, 'shorten'])->name('url.shorten');
+// Route::post('url.shorten', [UrlsController::class, 'shorten'])->name('url.shorten');
+Route::get('/{short_url}', [UrlsController::class, 'shorten'])->name('url.shorten');
 
 require __DIR__.'/auth.php';

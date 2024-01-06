@@ -37,11 +37,9 @@
                                 {{ $url->description }}
                             </div>
                             <div>
-                                <form action="{{ route('url.shorten') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="short_url" value="{{ $url->short_url }}">
-                                    <input type="submit" value="{{ $url->short_url }}" class="text-blue-500 hover:text-blue-400" name="short_url">
-                                </form>
+                                <a href="{{ route('url.shorten', ['short_url' => $url->short_url]) }}" target="_blank" class="text-blue-500 hover:text-blue-400">
+                                    {{ $url->short_url }}
+                                </a>
                             </div>
                         </div>
                     @endforeach

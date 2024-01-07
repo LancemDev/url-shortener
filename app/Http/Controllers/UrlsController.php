@@ -64,7 +64,11 @@ class UrlsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // return the view with the data of the shortened url that is to be updated
+        $url = Url::findOrFail($id);
+        return view('urls.edit', [
+            'urls' => $url,
+        ]);
     }
 
     /**

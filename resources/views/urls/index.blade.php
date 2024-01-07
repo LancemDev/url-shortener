@@ -27,21 +27,23 @@
                 </form>
                 @if ($urls != null)
                 <div class="w-full">
-                    <div class="flex justify-between bg-gray-800 px-16 py-2">
-                        <div class="text-gray-300">URL Description</div>
-                        <div class="text-gray-300">Short URL</div>
+                    <div class="flex justify-between bg-gray-800 px-16 py-2 text-gray-300">
+                        <div>URL Description</div>
+                        <div>Short URL</div>
+                        <div>Actions</div>
                     </div>
                     @foreach ($urls as $url)
-                        <div class="flex justify-between bg-gray-700 border-4 border-gray-200 rounded px-16 py-2 my-2">
-                            <div>
+                        <div class="flex justify-between items-center bg-gray-700 border-4 border-gray-200 rounded px-16 py-2 my-2">
+                            <div class="flex-1">
                                 {{ $url->description }}
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <a href="{{ $url->url }}" target="_blank" class="text-blue-500 hover:text-blue-400">
                                     {{ $url->short_url }}
                                 </a>
                             </div>
-                            <div>
+                            <div class="flex-1 flex justify-end">
+                                <a href="{{ route('urls.edit', ['url' => $url->id]) }}" class="text-green-500 hover:text-green-400 mr-4">Update</a>
                                 <form action="{{ route('urls.destroy', ['url' => $url->id]) }}" method="post">
                                     @csrf
                                     @method('DELETE')

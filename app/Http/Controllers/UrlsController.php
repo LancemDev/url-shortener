@@ -89,7 +89,9 @@ class UrlsController extends Controller
     public function shorten(Request $request)
     {
         // Redirect to the original url from the short url that has been passed on here
-        $url = Url::where('short_url', $request->short_url)->firstOrFail();
-        return redirect()->away($url->url);
+        // $url = Url::where('short_url', $request->short_url)->firstOrFail();
+
+        // return redirect()->away($url->url);
+        dd($request);
     }
 }

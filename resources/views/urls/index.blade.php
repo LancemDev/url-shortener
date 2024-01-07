@@ -37,7 +37,7 @@
                                 {{ $url->description }}
                             </div>
                             <div>
-                                <a href="{{ route('url.shorten', ['short_url' => $url->short_url]) }}" target="_blank" class="text-blue-500 hover:text-blue-400">
+                                <a href="{{ $url->url }}" target="_blank" class="text-blue-500 hover:text-blue-400">
                                     {{ $url->short_url }}
                                 </a>
                             </div>

@@ -80,7 +80,10 @@ class UrlsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete the shortened url from the database
+        $url = Url::findOrFail($id);
+        $url->delete();
+        return redirect()->route('urls.index');
     }
 
     public function shorten(Request $request)

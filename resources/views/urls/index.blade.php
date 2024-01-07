@@ -41,6 +41,13 @@
                                     {{ $url->short_url }}
                                 </a>
                             </div>
+                            <div>
+                                <form action="{{ route('urls.destroy', ['url' => $url->id]) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-400">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>

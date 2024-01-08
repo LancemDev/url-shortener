@@ -67,8 +67,9 @@ class UrlsController extends Controller
         // return the view with the data of the shortened url that is to be updated
         $url = Url::findOrFail($id);
         return view('urls.edit', [
-            'urls' => $url,
+            'url' => $url,
         ]);
+        // dd($url);
     }
 
     /**
@@ -76,7 +77,13 @@ class UrlsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // update the shortened url with the new data
+        $url = Url::findOrFail($id);
+        $url->url = $request->url;
+        $url->description = $request->description;
+        $url->save();
+        return redirect()->route('urls.index');
+        // dd($request);
     }
 
     /**

@@ -49,8 +49,6 @@ class UrlsController extends Controller
             'description' => $request->description,
         ]);
         return redirect()->route('urls.index');
-
-        
     }
 
     /**
